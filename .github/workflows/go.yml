@@ -51,4 +51,4 @@ jobs:
           prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'rc') }}
           body_path: ./readme.md
           files: |
-             file-proxy
+             *
