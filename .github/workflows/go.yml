@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: release-tars-${{env.PLATFORM_CLEAN}}
-        path: src/github.com/hhstu/file-proxy/releases/*
+        path: src/github.com/hhstu/file-proxy/file-proxy
