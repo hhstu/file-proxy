@@ -2,7 +2,6 @@ name: Go
 
 on:
   push:
-    branches: [ main ]
     tags:
       - v*
   pull_request:
@@ -28,7 +27,7 @@ jobs:
     - name: Save Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: file-proxy-file
+        name: file-proxy
         path: file-proxy
     - name: see-again
       run: ls -a
