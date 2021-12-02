@@ -32,3 +32,24 @@ jobs:
         path: file-proxy
     - name: see-again
       run: ls -a
+  release:
+    name: Create containerd Release
+    runs-on: ubuntu-18.04
+    timeout-minutes: 10
+    needs: [build]
+    steps:
+      - name: Download builds and release notes
+        uses: actions/download-artifact@v2
+      - name: see-again
+        run: ls -a
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_unmatched_files: true
+          name: containerd ${{ needs.check.outputs.stringver }}
+          draft: false
+          prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'rc') }}
+          body_path: ./readme.md
+          files: |
+             file-proxy
