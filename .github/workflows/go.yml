@@ -26,5 +26,5 @@ jobs:
     - name: Save Artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: release-tars-${{env.PLATFORM_CLEAN}}
-        path: src/github.com/hhstu/file-proxy/file-proxy
+        name: file-proxy-file
+        path: file-proxy
